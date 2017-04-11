@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <div class="nav pull-right">
+          <% if current_user %> 
+  <ul> 
+    <li>You are logged in as: <%= current_user.email %></li>
+    <li><%= link_to "Homepage", '/' %></a></li> 
+    <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+  </ul> 
+<% else %> 
+  <ul> 
+    <li><%= link_to "Homepage", '/' %></a></li> 
+    <li><%= link_to "Login", 'login' %></a></li> 
+    <li><%= link_to "Signup", 'signup' %></a></li> 
+  </ul> 
+<% end %>
+          
+        </div>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+
+</body>
+</html>
